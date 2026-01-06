@@ -12,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: 'Tính Trả Chậm',
         short_name: 'Trả Chậm',
-        description: 'Công cụ tính trả chậm nhanh',
+        description: 'Công cụ tính trả góp nhanh',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
