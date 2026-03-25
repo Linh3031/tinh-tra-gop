@@ -36,7 +36,7 @@
   }
 </script>
 
-<main class="w-full h-full max-w-md mx-auto bg-white shadow-xl overflow-hidden relative">
+<main class="w-full h-[100dvh] max-w-md mx-auto bg-white shadow-xl overflow-hidden relative">
   <InstallmentCalc />
 
   {#if showUpdatePrompt}

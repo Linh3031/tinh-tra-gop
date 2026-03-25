@@ -17,7 +17,7 @@
     export let diffPrice = 0;
 </script>
 
-<div class="absolute bottom-0 left-0 w-full bg-white border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] z-[60] rounded-t-xl animate-slideUp pb-4">
+<div class="fixed bottom-0 w-full max-w-md left-1/2 -translate-x-1/2 bg-white border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] z-[60] rounded-t-xl animate-slideUp pb-4">
     <div class="p-3 max-w-md mx-auto">
         <div class="flex justify-between items-end mb-2">
             <div>
