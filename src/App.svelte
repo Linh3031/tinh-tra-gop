@@ -4,7 +4,7 @@
   import { db } from './firebase.js'; 
   import { doc, onSnapshot } from 'firebase/firestore';
 
-  const APP_VERSION = 1; 
+  const APP_VERSION = 2; 
   let showUpdatePrompt = false;
 
   onMount(() => {
