@@ -4,7 +4,7 @@
   import { db } from './firebase.js'; 
   import { doc, onSnapshot } from 'firebase/firestore';
 
-  const APP_VERSION = 2; 
+  const APP_VERSION = 3; 
   let showUpdatePrompt = false;
 
   onMount(() => {
@@ -40,8 +40,8 @@
   <InstallmentCalc />
 
   {#if showUpdatePrompt}
-  <div class="absolute inset-0 z-50 bg-slate-900/80 flex items-center justify-center p-4 backdrop-blur-sm">
-      <div class="bg-white p-6 rounded-2xl shadow-2xl text-center w-full animate-popIn">
+  <div class="fixed inset-0 bg-slate-900/80 flex items-center justify-center p-4 backdrop-blur-sm" style="z-index: 9999;">
+      <div class="bg-white p-6 rounded-2xl shadow-2xl text-center w-full max-w-sm mx-auto animate-popIn">
           <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <span class="material-icons-round text-3xl">system_update</span>
           </div>
@@ -59,15 +59,8 @@
   .animate-popIn {
     animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  
   @keyframes popIn {
-    from { 
-        opacity: 0; 
-        transform: scale(0.95); 
-    }
-    to { 
-        opacity: 1; 
-        transform: scale(1); 
-    }
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
   }
 </style>
