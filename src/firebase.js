@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, runTransaction, onValue } from "firebase/database";
 import { getAuth, signInAnonymously } from "firebase/auth"; 
-// Bổ sung Firestore để chạy hệ thống kiểm tra Cập nhật (Force Update)
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -19,8 +18,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app); 
 
 // 2. Khởi tạo 2 loại Database phân biệt
-const rtdb = getDatabase(app); // Dành cho bộ đếm lượt sử dụng
-export const db = getFirestore(app); // EXPORT Dành cho App.svelte kiểm tra config cập nhật
+const rtdb = getDatabase(app); 
+export const db = getFirestore(app); 
 
 // 3. Tự động đăng nhập ẩn danh
 signInAnonymously(auth).then(() => {
