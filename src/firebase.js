@@ -1,7 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, runTransaction, onValue } from "firebase/database";
+import { getAuth, signInAnonymously } from "firebase/auth"; 
+// Bổ sung Firestore để chạy hệ thống kiểm tra Cập nhật (Force Update)
+import { getFirestore } from "firebase/firestore";
 
-// CẤU HÌNH TỪ DỰ ÁN CŨ CỦA BẠN (qlst-9e6bd)
 const firebaseConfig = {
   apiKey: "AIzaSyAQ3TWcpa4AnTN-32igGseYDlXrCf1BVew",
   authDomain: "qlst-9e6bd.firebaseapp.com",
@@ -14,26 +16,36 @@ const firebaseConfig = {
 
 // 1. Khởi tạo
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app); 
 
-// 2. Khởi tạo Realtime Database (Nơi chứa bộ đếm)
-const db = getDatabase(app);
+// 2. Khởi tạo 2 loại Database phân biệt
+const rtdb = getDatabase(app); // Dành cho bộ đếm lượt sử dụng
+export const db = getFirestore(app); // EXPORT Dành cho App.svelte kiểm tra config cập nhật
 
-// --- HÀM XỬ LÝ ---
+// 3. Tự động đăng nhập ẩn danh
+signInAnonymously(auth).then(() => {
+    console.log("Auto-login anonymous success");
+}).catch((error) => {
+    console.error("Auto-login failed", error);
+});
 
-// Tăng đếm
+// --- HÀM XỬ LÝ BỘ ĐẾM (Dùng rtdb) ---
 export const incrementCounter = () => {
-    // Lưu riêng vào nhánh 'app_tragop_counter' để tránh nhầm lẫn với app khác (nếu có)
-    const counterRef = ref(db, 'app_tragop_counter');
+    if (!auth.currentUser) return; 
+
+    const counterRef = ref(rtdb, 'app_tragop_counter');
     runTransaction(counterRef, (currentCount) => {
         return (currentCount || 0) + 1;
-    });
+    }).catch(err => console.log("Inc fail:", err)); 
 };
 
-// Lắng nghe đếm
 export const subscribeCounter = (callback) => {
-    const counterRef = ref(db, 'app_tragop_counter');
+    const counterRef = ref(rtdb, 'app_tragop_counter');
+    
     return onValue(counterRef, (snapshot) => {
         const data = snapshot.val();
         callback(data || 0);
+    }, (error) => {
+        console.log("Read wait:", error.code);
     });
 };
