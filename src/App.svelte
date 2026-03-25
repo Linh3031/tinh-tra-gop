@@ -4,7 +4,7 @@
   import { db } from './firebase.js'; 
   import { doc, onSnapshot } from 'firebase/firestore';
 
-  const APP_VERSION = 3; 
+  const APP_VERSION = 4; 
   let showUpdatePrompt = false;
 
   onMount(() => {
@@ -36,8 +36,11 @@
   }
 </script>
 
-<main class="w-full h-[100dvh] max-w-md mx-auto bg-white shadow-xl overflow-hidden relative">
-  <InstallmentCalc />
+<main>
+
+  <div class="w-full h-[100dvh] max-w-md mx-auto bg-white shadow-xl overflow-hidden relative">
+    <InstallmentCalc />
+  </div>
 
   {#if showUpdatePrompt}
   <div class="fixed inset-0 bg-slate-900/80 flex items-center justify-center p-4 backdrop-blur-sm" style="z-index: 9999;">
@@ -53,6 +56,7 @@
       </div>
   </div>
   {/if}
+
 </main>
 
 <style>

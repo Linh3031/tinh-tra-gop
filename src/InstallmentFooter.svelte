@@ -74,6 +74,13 @@
 </div>
 
 <style>
-    .animate-slideUp { animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .animate-slideUp { 
+        animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+    }
+    
+    @keyframes slideUp { 
+        /* Ép buộc trình duyệt luôn giữ translateX(-50%) trong suốt quá trình trượt */
+        from { transform: translate(-50%, 100%); } 
+        to { transform: translate(-50%, 0); } 
+    }
 </style>
