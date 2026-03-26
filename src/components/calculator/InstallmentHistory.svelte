@@ -15,7 +15,7 @@
     {#if history.length === 0}
         <div class="text-center py-10 opacity-40">
             <span class="material-icons-round text-4xl mb-2 text-slate-300">history</span>
-            <p class="text-xs font-bold text-slate-400">Chưa có lịch sử tính toán</p>
+            <p class="text-xs font-bold text-slate-400">Bấm lưu để bên tính toán để thêm vào danh sách tính combo</p>
         </div>
     {:else}
         <div class="flex justify-between items-center px-1 mb-2">

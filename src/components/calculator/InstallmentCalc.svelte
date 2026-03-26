@@ -110,7 +110,7 @@
     <div class="bg-white px-2 pt-1 pb-0 z-10 flex gap-2 border-b border-slate-200 sticky top-[56px]">
         <button class="flex-1 pb-2 text-sm font-bold uppercase border-b-2 {activeTab === 'calc' ? 'text-indigo-600 border-indigo-600' : 'text-slate-400 border-transparent'}" on:click={() => activeTab = 'calc'}>Tính Toán</button>
         <button class="flex-1 pb-2 text-sm font-bold uppercase border-b-2 {activeTab === 'history' ? 'text-indigo-600 border-indigo-600' : 'text-slate-400 border-transparent'}" on:click={() => activeTab = 'history'}>
-            Lịch Sử <span class="ml-1 text-[10px] bg-slate-100 px-1.5 py-0.5 rounded-full text-slate-500">{history.length}</span>
+            Combo góp <span class="ml-1 text-[10px] bg-slate-100 px-1.5 py-0.5 rounded-full text-slate-500">{history.length}</span>
         </button>
     </div>
 
@@ -138,6 +138,7 @@
                     </div>
                 {:else}
                     <input type="text" inputmode="numeric" value={displayDownPaymentAmount} on:input={handleDownPaymentAmountInput} class="w-full text-lg font-bold text-indigo-600 outline-none border-b-2 border-indigo-100 bg-transparent" placeholder="0">
+                    {#if downPaymentAmount > 0}<div class="text-[10px] text-indigo-500 font-bold mt-1 tracking-tight">Thực tế: {formatFull(downPaymentAmount)} VNĐ</div>{/if}
                 {/if}
             </div>
             <div class="flex-[4] bg-white p-2.5 rounded-lg shadow-sm border border-slate-200">
@@ -198,6 +199,7 @@
                         <span class="material-icons-round text-[11px] text-orange-500">sell</span> Giá Gốc Thiết Bị
                     </label>
                     <input type="text" value={displayBasePrice} on:input={handleBasePriceInput} class="w-full pl-2 py-1.5 text-base font-black text-indigo-700 outline-none border border-indigo-200 rounded-md bg-white" placeholder="VD: 32000">
+                    {#if originalBasePrice > 0}<div class="text-[10px] text-indigo-500 font-bold mt-1 tracking-tight pl-2">Thực tế: {formatFull(originalBasePrice)} VNĐ</div>{/if}
                 </div>
             {/if}
         </div>
