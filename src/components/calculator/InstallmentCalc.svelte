@@ -156,14 +156,18 @@
         <div class="bg-indigo-50/30 p-2.5 rounded-lg shadow-sm border border-indigo-100 space-y-2">
             <div class="flex items-center gap-2">
                 <span class="text-[10px] font-bold text-slate-600 w-16 uppercase">BH 1 Đổi 1</span>
+                
                 <select bind:value={selectedBh11Group} class="flex-1 bg-white border border-slate-200 text-xs font-bold rounded p-1.5 outline-none">
                     <option value="none">Không mua</option>
-                    <option value="smartphone">Smartphone (4.62%)</option>
-                    <option value="laptop_tablet">Laptop - Tablet (6.0%)</option>
-                    <option value="smart_watch">Smart Watch (5.5%)</option>
-                    <option value="tv">Điện tử - Tivi (7.0%)</option>
-                    <option value="air_conditioner">Máy Lạnh</option>
-                    <option value="fridge">Tủ lạnh, Máy giặt</option>
+                    <option value="phone">Điện thoại (4.62%)</option>
+                    <option value="laptop_tablet">Laptop - Tablet (6%)</option>
+                    <option value="fridge_freezer">Tủ lạnh - Đông - Mát (6%)</option>
+                    <option value="washer_dryer">Máy giặt - Sấy - Rửa chén (6%)</option>
+                    <option value="ac">Máy lạnh (6%)</option>
+                    <option value="water_purifier">Máy lọc nước (6%)</option>
+                    <option value="home_appliances">Gia dụng, Gia dụng lắp đặt (6%)</option>
+                    <option value="speaker">Loa karaoke, loa thanh (6%)</option>
+                    <option value="tv">Tivi (7%)</option>
                 </select>
             </div>
             <div class="flex items-center gap-2">
