@@ -200,7 +200,7 @@
             {#if showOriginalPrice}
                 <div class="pt-2 border-t border-indigo-200 border-dashed mt-2">
                     <label class="text-[9px] font-bold text-indigo-600 uppercase mb-0.5 flex items-center gap-1">
-                        <span class="material-icons-round text-[11px] text-orange-500">sell</span> Giá Gốc Thiết Bị
+                        <span class="material-icons-round text-[11px] text-orange-500">sell</span> Nhập giá gốc để tính phí Bảo Hiểm
                     </label>
                     <input type="text" value={displayBasePrice} on:input={handleBasePriceInput} class="w-full pl-2 py-1.5 text-base font-black text-indigo-700 outline-none border border-indigo-200 rounded-md bg-white" placeholder="VD: 32000">
                     {#if originalBasePrice > 0}<div class="text-[10px] text-indigo-500 font-bold mt-1 tracking-tight pl-2">Thực tế: {formatFull(originalBasePrice)} VNĐ</div>{/if}

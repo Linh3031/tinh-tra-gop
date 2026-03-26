@@ -7,7 +7,7 @@
   import { db } from './services/firebase.js';
   import { doc, onSnapshot } from 'firebase/firestore';
 
-  const APP_VERSION = 8; 
+  const APP_VERSION = 9; 
   let showUpdatePrompt = false;
   let showInstallGuide = false;
   let showEcosystem = false; 

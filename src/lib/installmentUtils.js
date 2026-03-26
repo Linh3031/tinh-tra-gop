@@ -61,7 +61,11 @@ export const calculateBHMR = (category, isDMX, years, price) => {
     // 1. NẾU MUA KÈM GÓI THỢ ĐMX
     // ==========================================
     if (isDMX) {
-        if (category === 'phone' || category === 'apple') { 
+        if (category === 'apple') {
+             return 590000;
+        }
+
+        if (category === 'phone') { 
             if (years === 1) return getRate(price, [
                 { min: 0, max: 3000000, fee: 80000 },
                 { min: 3000000, max: 5000000, fee: 260000 },
