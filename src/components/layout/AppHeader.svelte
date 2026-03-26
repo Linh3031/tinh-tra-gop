@@ -20,8 +20,23 @@
             <span class="material-icons-round text-[16px]">apps</span>
         </button>
 
-        <button on:click={() => dispatch('showInstallGuide')} class="w-7 h-7 bg-slate-50 text-slate-600 rounded-full flex items-center justify-center border border-slate-200 animate-pulse hover:bg-slate-100 hover:animate-none transition-all shadow-sm active:scale-95" title="Hướng dẫn cài đặt App">
+        <button on:click={() => dispatch('showInstallGuide')} class="w-7 h-7 bg-slate-50 text-slate-600 rounded-full flex items-center justify-center border border-slate-200 animate-attention hover:bg-slate-100 hover:animate-none transition-all shadow-sm active:scale-95" title="Hướng dẫn cài đặt App">
             <span class="material-icons-round text-[16px]">install_mobile</span>
         </button>
     </div>
 </div>
+
+<style>
+    /* Hiệu ứng thu hút: Phóng to nhẹ và lắc sang 2 bên, sau đó dừng lại 1 nhịp rồi lặp lại */
+    .animate-attention {
+        animation: attention 1.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+    }
+    
+    @keyframes attention {
+        0%, 100% { transform: scale(1) rotate(0deg); }
+        15% { transform: scale(1.15) rotate(-8deg); }
+        30% { transform: scale(1.15) rotate(8deg); }
+        45% { transform: scale(1.15) rotate(-4deg); }
+        60% { transform: scale(1) rotate(0deg); }
+    }
+</style>
